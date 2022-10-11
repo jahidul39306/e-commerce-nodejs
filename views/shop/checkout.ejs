@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if(products.length > 0) { %>
+            <h1>My Products</h1>
+            <p>List of all the products...</p>
+            <div class="grid">
+                <% for (let product of products) { %>
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title"><%= product.title %></h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="data:image/jpeg;base64,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" alt="A Book">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">$19.99</h2>
+                        <p class="product__description">A very interesting book about so many even more interesting things!</p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No product added</h1>
+        <% } %>
+    </main>
+</body>
+</html>
