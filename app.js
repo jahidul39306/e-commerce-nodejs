@@ -84,12 +84,6 @@ app.use((error, req, res, next) => {
 
 mongoose.connect(MONGODB_URI)
 	.then(result => {
-		User.findOne().then(user => {
-			if (!user) {
-				user = new User({ name: 'jahid', email: 'test@test.com', cart: [] });
-				user.save();
-			}
-		});
 		console.log('connected');
 		app.listen(process.env.PORT);
 	})
